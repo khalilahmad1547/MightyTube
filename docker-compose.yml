@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_NAME=postgres
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:     
+      - db
+      - redis
+    ports: 
+      - 3000:3000
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080
+
+  redis:
+    image: redis:latest
+
+volumes:
+  gem_cache:
+  db_data:

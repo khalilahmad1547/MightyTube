@@ -1,0 +1,1 @@
+# rails_starter_template
