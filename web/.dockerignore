@@ -1,0 +1,23 @@
+# Ignore development-specific files
+node_modules
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# Ignore build output and temporary files
+/dist
+/tmp
+/out-tsc
+/*.d.ts
+
+# Ignore editor-specific files
+.idea
+.vscode
+
+# Ignore Git-related files
+.git
+.gitignore
+
+# Ignore Docker-related files if they are not needed in the image
+Dockerfile*
+.dockerignore
