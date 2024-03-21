@@ -52,6 +52,13 @@ services:
 
   redis:
     image: redis:latest
+  
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports: 
+      - 80:80
 
 volumes:
   gem_cache:
