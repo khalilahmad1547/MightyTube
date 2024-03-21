@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app: 
+  app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,7 +11,11 @@ services:
       - DB_PASSWORD=postgres
       - DB_HOST=db
       - DB_PORT=5432
-    depends_on:     
+      - REDIS_URL=redis://redis:6379/1
+    links:
+      - redis
+      - db
+    depends_on:  
       - db
       - redis
     ports: 
@@ -27,14 +31,34 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
   
-  adminer:
-    image: adminer:latest
-    restart: always
-    ports:
-      - 8080:8080
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec sidekiq
+    environment:
+      - DB_NAME=postgres
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - REDIS_URL=redis://redis:6379/1
+    links:
+      - redis
+      - db
+    depends_on:  
+      - db
+      - redis
 
   redis:
     image: redis:latest
+  
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports: 
+      - 80:80
 
 volumes:
   gem_cache:
