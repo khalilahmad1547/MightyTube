@@ -1,5 +1,3 @@
-# syntax = docker/dockerfile:1
-
 ARG RUBY_VERSION=3.2.2
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
@@ -11,7 +9,8 @@ ENV PORT=3000 \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development:test" \
     RAILS_SERVE_STATIC_FILES="true" \
-    RAILS_MASTER_KEY="your_master_key"
+    RAILS_MASTER_KEY="your_master_key" \
+    SECRET_KEY_BASE="your_secret_key_base_here"
 
 
 FROM base as build
@@ -28,7 +27,7 @@ COPY . .
 
 RUN bundle exec bootsnap precompile app/ lib/
 
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+RUN ./bin/rails assets:precompile
 
 
 FROM base
