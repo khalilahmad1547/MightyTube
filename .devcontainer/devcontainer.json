@@ -18,7 +18,8 @@
 	"forwardPorts": [
 		3000,
 		5432,
-		37905
+		37905,
+		4200
 	],
 	"customizations": {
 		"vscode": {
