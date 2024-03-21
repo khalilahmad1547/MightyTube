@@ -33,7 +33,10 @@
 				"Shopify.ruby-lsp",
 				"castwide.solargraph",
 				"LoranKloeze.ruby-rubocop-revived",
-				"redhat.vscode-yaml"
+				"redhat.vscode-yaml",
+				"Angular.ng-template",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
 			]
 		}
 	},
