@@ -31,6 +31,9 @@ gem 'turbo-rails'
 
 gem 'stimulus-rails'
 
+# for file storage
+gem 'shrine', '~> 2.6'
+
 gem 'sidekiq', '~> 7.2'
 
 gem 'redis', '>= 4.0.1'
