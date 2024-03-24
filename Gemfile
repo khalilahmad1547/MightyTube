@@ -38,6 +38,7 @@ gem 'redis', '>= 4.0.1'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.9'
+gem 'jwt', '~> 2.8'
 
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
