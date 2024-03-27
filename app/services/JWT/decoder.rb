@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JWT
   class Decoder
     include ApplicationService
@@ -22,7 +24,7 @@ module JWT
       jwt_secret = ENV.fetch('JWT_SECRET', nil)
       JWT.decode(token, jwt_secret, true, algo).first['data']
     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => e
-      puts e
+      Rails.logger.debug e
     end
   end
 end
