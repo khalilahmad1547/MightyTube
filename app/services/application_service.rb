@@ -39,7 +39,7 @@ module ApplicationService
     def validate_params(params)
       @validation_outcome = contract.new.call(params)
       if validation_outcome.failure?
-        errors = { errors: [validation_outcome.errors.to_h] }.to_json
+        errors = { errors: validation_outcome.errors.full_messages }.to_json
         return Failure(errors)
       end
 
