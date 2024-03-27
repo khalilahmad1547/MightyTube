@@ -14,6 +14,14 @@ module Api::V0
       end
     end
 
-    def refresh; end
+    def refresh
+      Sessions::Refresh.call(params.to_unsafe_h, current_user:) do |result|
+        result.success { |jwt| render json: jwt, status: :ok }
+
+        result.failure(:unauthorized) { unauthorized_response }
+
+        result.failure { |errors| render json: errors, status: :unprocessable_entity }
+      end
+    end
   end
 end
