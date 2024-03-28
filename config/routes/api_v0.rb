@@ -2,6 +2,8 @@
 
 namespace :api do
   namespace :v0 do
-    get :info
+    resource :session, only: :create do
+      post :refresh
+    end
   end
 end
