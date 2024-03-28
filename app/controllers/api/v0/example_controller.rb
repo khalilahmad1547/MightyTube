@@ -1,4 +1,9 @@
 # frozen_string_literal: true
 
-class Api::V0::ExampleController < ApplicationController
+module Api::V0
+  class ExampleController < ApiController
+    def index
+      render json: { status: :ok }, status: :ok
+    end
+  end
 end
