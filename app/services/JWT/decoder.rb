@@ -23,7 +23,7 @@ module JWT
       algo = { algorithm: 'HS256' }
       jwt_secret = ENV.fetch('JWT_SECRET', nil)
       JWT.decode(token, jwt_secret, true, algo).first['data']
-    rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => e
+    rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
       nil
     end
   end
