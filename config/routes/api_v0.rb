@@ -5,5 +5,6 @@ namespace :api do
     resource :session, only: :create do
       post :refresh
     end
+    get 'api_status', to: 'example#index'
   end
 end
