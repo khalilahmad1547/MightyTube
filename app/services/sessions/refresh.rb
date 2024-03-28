@@ -5,6 +5,9 @@ module Sessions
     include ApplicationService
 
     class Contract < ApplicationContract
+      params do
+        optional(:exp).maybe(:integer)
+      end
     end
 
     def execute(_params, current_user:)

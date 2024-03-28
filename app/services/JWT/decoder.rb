@@ -24,7 +24,7 @@ module JWT
       jwt_secret = ENV.fetch('JWT_SECRET', nil)
       JWT.decode(token, jwt_secret, true, algo).first['data']
     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => e
-      Rails.logger.debug e
+      nil
     end
   end
 end
