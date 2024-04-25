@@ -323,9 +323,9 @@ GEM
       racc (~> 1.5)
       sexp_processor (~> 4.16)
     sexp_processor (4.17.1)
-    shrine (2.19.4)
+    shrine (3.5.0)
       content_disposition (~> 1.0)
-      down (>= 4.1, < 6)
+      down (~> 5.1)
     sidekiq (7.2.2)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
@@ -410,7 +410,7 @@ DEPENDENCIES
   rspec-rails (~> 6.1)
   rubocop
   rubocop-rails
-  shrine (~> 2.6)
+  shrine (~> 3.5)
   sidekiq (~> 7.2)
   solargraph
   sprockets-rails
