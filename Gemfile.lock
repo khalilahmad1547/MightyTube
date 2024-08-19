@@ -80,7 +80,7 @@ GEM
     benchmark (0.3.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    blueprinter (1.0.2)
+    blueprinter (1.1.0)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
@@ -390,7 +390,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  blueprinter (~> 1.0.2)
+  blueprinter (~> 1.1.0)
   bootsnap
   debug
   devise (~> 4.9)
